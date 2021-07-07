@@ -75,16 +75,16 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell()
-        let rp = repositories[indexPath.row]
-        cell.textLabel?.text = rp["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = rp["language"] as? String ?? ""
+        let repo = repositories[indexPath.row]
+        cell.textLabel?.text = repo["full_name"] as? String ?? ""
+        cell.detailTextLabel?.text = repo["language"] as? String ?? ""
         cell.tag = indexPath.row
         return cell
 
     }
 
+    // Cell選択時に呼ばれる
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
