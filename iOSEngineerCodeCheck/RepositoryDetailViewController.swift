@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+class RepositoryDetailViewController: UIViewController {
 
     @IBOutlet weak var avatarImageView: UIImageView!
 
@@ -25,7 +25,7 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = repository?.name
+        titleLabel.text = "\(repository?.owner?.username ?? "")/\(repository?.name ?? "")"
         languageLabel.text = "Written in \(repository?.language ?? "")"
         starsCountLabel.text = "\(repository?.starCount ?? 0) stars"
         watchersCountLabel.text = "\(repository?.watcherCount ?? 0) watchers"
