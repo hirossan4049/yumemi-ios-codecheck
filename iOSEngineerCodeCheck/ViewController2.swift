@@ -14,42 +14,36 @@ class ViewController2: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
 
-    @IBOutlet weak var langLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var starsCountLabel: UILabel!
+    @IBOutlet weak var watchersCountLabel: UILabel!
+    @IBOutlet weak var forksCountLabel: UILabel!
+    @IBOutlet weak var issuesCountLabel: UILabel!
 
-    @IBOutlet weak var starsLabel: UILabel!
-    @IBOutlet weak var watchersLabel: UILabel!
-    @IBOutlet weak var forksLabel: UILabel!
-    @IBOutlet weak var issuesLabel: UILabel!
-
-    var vc1: ViewController!
+    var repository: Repository?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let repo = vc1.repositories[vc1.selectedIndex]
-
-        langLabel.text = "Written in \(repo["language"] as? String ?? "")"
-        starsLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
-        watchersLabel.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
-        forksLabel.text = "\(repo["forks_count"] as? Int ?? 0) forks"
-        issuesLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
+        titleLabel.text = repository?.name
+        languageLabel.text = "Written in \(repository?.language ?? "")"
+        starsCountLabel.text = "\(repository?.starCount ?? 0) stars"
+        watchersCountLabel.text = "\(repository?.watcherCount ?? 0) watchers"
+        forksCountLabel.text = "\(repository?.forkCount ?? 0) forks"
+        issuesCountLabel.text = "\(repository?.issueCount ?? 0) open issues"
+        
         getImage()
 
     }
 
     func getImage() {
-        let repo = vc1.repositories[vc1.selectedIndex]
-
-        titleLabel.text = repo["full_name"] as? String
-
-        guard let owner = repo["owner"] as? [String: Any] else {
+        guard let imgURLString = repository?.owner?.avatarImageURL else {
             return
         }
-        guard let imgURL = owner["avatar_url"] as? String else {
-            return
-        }
-        URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
-            let img = UIImage(data: data!)!
+        guard let imgURL = URL(string: imgURLString) else { return }
+        URLSession.shared.dataTask(with: imgURL) { (data, res, err) in
+            guard let data = data else { return }
+            guard let img = UIImage(data: data) else { return }
             DispatchQueue.main.async {
                 self.avatarImageView.image = img
             }

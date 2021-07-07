@@ -12,12 +12,11 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
 
-    private(set) var repositories: [[String: Any]] = []
+    private(set) var repositories: [Repository] = []
 
     var task: URLSessionTask?
-    var word: String!
-    var url: String!
-    private(set) var selectedIndex: Int!
+    var searchText: String = ""
+    private(set) var selectedIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,20 +36,16 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        word = searchBar.text!
-        guard word.count != 0 else {
+        searchText = searchBar.text ?? ""
+        guard searchText.count != 0 else {
             return
         }
 
-        url = "https://api.github.com/search/repositories?q=\(word!)"
+        let url = "https://api.github.com/search/repositories?q=\(searchText)"
         task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
-            guard let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] else {
-                return
-            }
-            guard let items = obj["items"] as? [[String: Any]] else {
-                return
-            }
-            self.repositories = items
+            guard let data = data else { return }
+            guard let hage = try? JSONDecoder().decode(Repositories.self, from: data) else { return }
+            self.repositories = hage.items
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -63,7 +58,8 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
         if segue.identifier == "Detail" {
             let dtl = segue.destination as! ViewController2
-            dtl.vc1 = self
+            guard let index = selectedIndex else { return }
+            dtl.repository = repositories[index]
         }
 
     }
@@ -76,8 +72,8 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
         let cell = UITableViewCell()
         let repo = repositories[indexPath.row]
-        cell.textLabel?.text = repo["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = repo["language"] as? String ?? ""
+        cell.textLabel?.text =  repo.name
+        cell.detailTextLabel?.text = repo.language
         cell.tag = indexPath.row
         return cell
 

@@ -140,12 +140,12 @@
                     <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
                     <connections>
                         <outlet property="avatarImageView" destination="Iim-eb-8Ad" id="ck3-ps-os8"/>
-                        <outlet property="forksLabel" destination="ZMv-4f-X2V" id="2Lz-sp-6fa"/>
-                        <outlet property="issuesLabel" destination="dzg-K8-h2L" id="K5O-ef-Nbj"/>
-                        <outlet property="langLabel" destination="s3M-QO-Kom" id="sNV-sv-cxx"/>
-                        <outlet property="starsLabel" destination="0WZ-UA-R8O" id="K2d-BC-XNY"/>
+                        <outlet property="forksCountLabel" destination="ZMv-4f-X2V" id="TYp-yk-P6d"/>
+                        <outlet property="issuesCountLabel" destination="dzg-K8-h2L" id="uvO-Os-UDm"/>
+                        <outlet property="languageLabel" destination="s3M-QO-Kom" id="WS6-0o-axu"/>
+                        <outlet property="starsCountLabel" destination="0WZ-UA-R8O" id="h1F-gv-CYl"/>
                         <outlet property="titleLabel" destination="4q1-pG-WSB" id="Iez-hV-bph"/>
-                        <outlet property="watchersLabel" destination="lQC-lo-IqN" id="2dT-Ww-3sz"/>
+                        <outlet property="watchersCountLabel" destination="lQC-lo-IqN" id="Eel-Y7-ayv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj0-Ld-RTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
