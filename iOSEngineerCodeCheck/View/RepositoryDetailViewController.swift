@@ -25,6 +25,10 @@ class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
+    }
+    
+    private func setupView() {
         titleLabel.text = "\(repository?.owner?.username ?? "")/\(repository?.name ?? "")"
         languageLabel.text = "Written in \(repository?.language ?? "")"
         starsCountLabel.text = "\(repository?.starCount ?? 0) stars"
@@ -33,10 +37,9 @@ class RepositoryDetailViewController: UIViewController {
         issuesCountLabel.text = "\(repository?.issueCount ?? 0) open issues"
         
         getImage()
-
     }
 
-    func getImage() {
+    private func getImage() {
         guard let imgURLString = repository?.owner?.avatarImageURL else {
             return
         }
