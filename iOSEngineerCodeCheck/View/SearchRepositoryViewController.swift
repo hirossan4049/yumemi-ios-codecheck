@@ -29,6 +29,12 @@ class SearchRepositoryViewController: UITableViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController?.searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
         navigationItem.searchController?.searchBar.delegate = self
+        
+        tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .none
+        
+        // FIXME
+        self.view.backgroundColor = .systemGray5
 
         title = "Search"
     }
@@ -62,11 +68,28 @@ class SearchRepositoryViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RepositoryTableViewCell
+        cell.selectionStyle = .none
+
         guard let repo = self.presenter?.repositories[indexPath.row] else { return cell }
-        cell.textLabel?.text =  repo.name
-        cell.detailTextLabel?.text = repo.language
-        cell.tag = indexPath.row
+        cell.titleLabel.text =  repo.name
+        cell.usernameLabel.text = repo.owner?.username
+        cell.descriptionLabel.text = repo.description
+        cell.watchersCountLabel.text = "\(repo.watcherCount ?? 0)"
+        cell.starsCountLabel.text = "\(repo.starCount ?? 0)"
+        cell.forksCountLabel.text = "\(repo.forkCount ?? 0)"
+
+        guard let imgURLString = repo.owner?.avatarImageURL else {
+            return cell
+        }
+        guard let imgURL = URL(string: imgURLString) else { return cell }
+        URLSession.shared.dataTask(with: imgURL) { (data, res, err) in
+            guard let data = data else { return }
+            guard let img = UIImage(data: data) else { return }
+            DispatchQueue.main.async {
+                cell.userIconImageView.image = img
+            }
+        }.resume()
         return cell
 
     }
