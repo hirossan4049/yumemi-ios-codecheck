@@ -47,25 +47,25 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-pG-WSB">
-                                <rect key="frame" x="130" y="120" width="266" height="33.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <rect key="frame" x="130" y="120" width="266" height="31.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO1-0R-a8V">
-                                <rect key="frame" x="130" y="153.5" width="266" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="130" y="151.5" width="266" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3M-QO-Kom">
-                                <rect key="frame" x="130" y="180" width="266" height="20.5"/>
+                                <rect key="frame" x="130" y="178" width="266" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0gb-01-GLC">
-                                <rect key="frame" x="329" y="232.5" width="65" height="120"/>
+                                <rect key="frame" x="329" y="230.5" width="65" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WZ-UA-R8O">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="18"/>
@@ -93,8 +93,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-dZ-5LE">
-                                <rect key="frame" x="0.0" y="384.5" width="414" height="477.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-dZ-5LE">
+                                <rect key="frame" x="0.0" y="382.5" width="414" height="479.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -126,11 +126,13 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="J6o-vL-S1z"/>
                     <connections>
                         <outlet property="avatarImageView" destination="Iim-eb-8Ad" id="ck3-ps-os8"/>
+                        <outlet property="descriptionTextView" destination="QQS-dZ-5LE" id="42s-qj-w6X"/>
                         <outlet property="forksCountLabel" destination="ZMv-4f-X2V" id="TYp-yk-P6d"/>
                         <outlet property="issuesCountLabel" destination="dzg-K8-h2L" id="uvO-Os-UDm"/>
                         <outlet property="languageLabel" destination="s3M-QO-Kom" id="WS6-0o-axu"/>
                         <outlet property="starsCountLabel" destination="0WZ-UA-R8O" id="h1F-gv-CYl"/>
                         <outlet property="titleLabel" destination="4q1-pG-WSB" id="Iez-hV-bph"/>
+                        <outlet property="usernameLabel" destination="fO1-0R-a8V" id="4Vb-ai-7O0"/>
                         <outlet property="watchersCountLabel" destination="lQC-lo-IqN" id="Eel-Y7-ayv"/>
                     </connections>
                 </viewController>
