@@ -39,6 +39,8 @@ class RepositoryDetailViewController: UIViewController {
         forksCountLabel.text = "\(repository?.forkCount ?? 0) forks"
         issuesCountLabel.text = "\(repository?.issueCount ?? 0) open issues"
         
+        view.backgroundColor = .backgroundColor
+        
         getImage()
     }
 
