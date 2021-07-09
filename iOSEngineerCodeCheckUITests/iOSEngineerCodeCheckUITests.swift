@@ -43,7 +43,6 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
         XCUIApplication()/*@START_MENU_TOKEN@*/.buttons["Search"]/*[[".keyboards",".buttons[\"search\"]",".buttons[\"Search\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
         sleep(3)
         app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Realm is a mobile database: a replacement for Core Data & SQLite")/*[[".cells.containing(.staticText, identifier:\"realm-cocoa\")",".cells.containing(.staticText, identifier:\"1968\")",".cells.containing(.staticText, identifier:\"14531\")",".cells.containing(.staticText, identifier:\"Realm is a mobile database: a replacement for Core Data & SQLite\")"],[[[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["realm"].tap()
-        
     }
 
     func testLaunchPerformance() throws {

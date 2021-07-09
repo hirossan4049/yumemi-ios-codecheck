@@ -24,11 +24,14 @@ class RepositoryDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
     }
     
     private func setupView() {
+        navigationItem.largeTitleDisplayMode = .never
+        title = repository?.name
+        
         titleLabel.text = "\(repository?.owner?.username ?? "")/\(repository?.name ?? "")"
         languageLabel.text = "Written in \(repository?.language ?? "")"
         starsCountLabel.text = "\(repository?.starCount ?? 0) stars"

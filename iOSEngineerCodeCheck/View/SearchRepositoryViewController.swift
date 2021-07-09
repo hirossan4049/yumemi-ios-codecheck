@@ -24,6 +24,13 @@ class SearchRepositoryViewController: UITableViewController {
         let presenter = SearchRepositoryPresenter(view: self)
         inject(presenter: presenter)
         
+        title = "Search"
+        
+        setupView()
+    }
+    
+
+    func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -33,10 +40,7 @@ class SearchRepositoryViewController: UITableViewController {
         tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.separatorStyle = .none
         
-        // FIXME
-        self.view.backgroundColor = .systemGray5
-
-        title = "Search"
+        self.view.backgroundColor = .backgroundColor
     }
     
     func searchRepositories(text: String) {

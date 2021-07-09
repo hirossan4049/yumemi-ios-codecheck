@@ -21,6 +21,9 @@
 		E9E9CE322696D3FA005C03B3 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE312696D3FA005C03B3 /* GithubAPI.swift */; };
 		E9E9CE38269742CD005C03B3 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE36269742CC005C03B3 /* RepositoryTableViewCell.swift */; };
 		E9E9CE39269742CD005C03B3 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E9CE37269742CC005C03B3 /* RepositoryTableViewCell.xib */; };
+		E9E9CE4326981420005C03B3 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE422698141F005C03B3 /* UIColor+theme.swift */; };
+		E9E9CE48269814CE005C03B3 /* String+leftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE47269814CE005C03B3 /* String+leftPadding.swift */; };
+		E9E9CE502698156A005C03B3 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		E9E9CE312696D3FA005C03B3 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		E9E9CE36269742CC005C03B3 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		E9E9CE37269742CC005C03B3 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
+		E9E9CE422698141F005C03B3 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
+		E9E9CE47269814CE005C03B3 /* String+leftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+leftPadding.swift"; sourceTree = "<group>"; };
+		E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
+				E9E9CE412698132D005C03B3 /* Extension */,
 				E9E9CE2C2696C917005C03B3 /* Application */,
 				E9E9CE2D2696C932005C03B3 /* Model */,
 				E9E9CE2A2696C8E4005C03B3 /* Presenter */,
@@ -184,6 +191,16 @@
 				E9E9CE37269742CC005C03B3 /* RepositoryTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E9E9CE412698132D005C03B3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E9E9CE422698141F005C03B3 /* UIColor+theme.swift */,
+				E9E9CE47269814CE005C03B3 /* String+leftPadding.swift */,
+				E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,8 +338,11 @@
 				E9E9CE262696C8DE005C03B3 /* SearchRepositoryPresenter.swift in Sources */,
 				BFD945E3244DC5E80012785A /* SearchRepositoryViewController.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
+				E9E9CE4326981420005C03B3 /* UIColor+theme.swift in Sources */,
 				E9E9CE38269742CD005C03B3 /* RepositoryTableViewCell.swift in Sources */,
+				E9E9CE48269814CE005C03B3 /* String+leftPadding.swift in Sources */,
 				E9E9CE1B26956CBD005C03B3 /* Repository.swift in Sources */,
+				E9E9CE502698156A005C03B3 /* UIColor+hex.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E9E9CE322696D3FA005C03B3 /* GithubAPI.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,

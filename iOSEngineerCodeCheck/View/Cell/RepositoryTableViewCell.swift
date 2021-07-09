@@ -27,11 +27,14 @@ class RepositoryTableViewCell: UITableViewCell {
     }
     
     func setupView() {
+        backView.backgroundColor = .secondaryBackgroundColor
         backView.layer.cornerRadius = 14
         backView.layer.shadowOffset = CGSize(width: 0, height: 2)
         backView.layer.shadowColor = UIColor.black.cgColor
         backView.layer.shadowOpacity = 0.04
         backView.layer.shadowRadius = 4
+        
+        usernameLabel.textColor = .tertiaryLabelColor
         
         userIconImageView.clipsToBounds = true
         userIconImageView.layer.cornerRadius = userIconImageView.frame.width / 2

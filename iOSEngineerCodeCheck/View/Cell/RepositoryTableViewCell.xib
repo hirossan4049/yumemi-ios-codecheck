@@ -30,9 +30,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjo-LZ-rZA">
-                                <rect key="frame" x="86" y="12" width="262" height="18"/>
+                                <rect key="frame" x="86" y="12" width="262" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="MQI-KT-eSx"/>
+                                    <constraint firstAttribute="height" constant="20" id="MQI-KT-eSx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -119,7 +119,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="i1w-GM-39N" firstAttribute="top" secondItem="Qjo-LZ-rZA" secondAttribute="bottom" constant="4" id="74O-B5-5i8"/>
+                            <constraint firstItem="i1w-GM-39N" firstAttribute="top" secondItem="Qjo-LZ-rZA" secondAttribute="bottom" constant="2" id="74O-B5-5i8"/>
                             <constraint firstItem="2dT-Fa-I8X" firstAttribute="top" secondItem="bFj-SA-9et" secondAttribute="top" constant="10" id="GLv-BW-gfq"/>
                             <constraint firstAttribute="bottom" secondItem="gzZ-7g-Qau" secondAttribute="bottom" constant="8" id="GdZ-vs-Qns"/>
                             <constraint firstItem="2dT-Fa-I8X" firstAttribute="leading" secondItem="bFj-SA-9et" secondAttribute="leading" constant="10" id="QXY-dJ-MYg"/>
