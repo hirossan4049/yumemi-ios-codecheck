@@ -24,6 +24,8 @@
 		E9E9CE4326981420005C03B3 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE422698141F005C03B3 /* UIColor+theme.swift */; };
 		E9E9CE48269814CE005C03B3 /* String+leftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE47269814CE005C03B3 /* String+leftPadding.swift */; };
 		E9E9CE502698156A005C03B3 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */; };
+		E9E9CE5B26987A32005C03B3 /* RepositoryDetailCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE5A26987A32005C03B3 /* RepositoryDetailCounterView.swift */; };
+		E9E9CE6326987A40005C03B3 /* RepositoryDetailCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E9CE6226987A3F005C03B3 /* RepositoryDetailCounterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		E9E9CE422698141F005C03B3 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		E9E9CE47269814CE005C03B3 /* String+leftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+leftPadding.swift"; sourceTree = "<group>"; };
 		E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		E9E9CE5A26987A32005C03B3 /* RepositoryDetailCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCounterView.swift; sourceTree = "<group>"; };
+		E9E9CE6226987A3F005C03B3 /* RepositoryDetailCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryDetailCounterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 		E9E9CE2B2696C911005C03B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9E9CE592698786E005C03B3 /* Component */,
 				E9E9CE3D269742D2005C03B3 /* Cell */,
 				BFD945E2244DC5E80012785A /* SearchRepositoryViewController.swift */,
 				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
@@ -201,6 +206,15 @@
 				E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E9E9CE592698786E005C03B3 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				E9E9CE5A26987A32005C03B3 /* RepositoryDetailCounterView.swift */,
+				E9E9CE6226987A3F005C03B3 /* RepositoryDetailCounterView.xib */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E9CE6326987A40005C03B3 /* RepositoryDetailCounterView.xib in Resources */,
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
 				BFD945E6244DC5E80012785A /* Main.storyboard in Resources */,
@@ -341,6 +356,7 @@
 				E9E9CE4326981420005C03B3 /* UIColor+theme.swift in Sources */,
 				E9E9CE38269742CD005C03B3 /* RepositoryTableViewCell.swift in Sources */,
 				E9E9CE48269814CE005C03B3 /* String+leftPadding.swift in Sources */,
+				E9E9CE5B26987A32005C03B3 /* RepositoryDetailCounterView.swift in Sources */,
 				E9E9CE1B26956CBD005C03B3 /* Repository.swift in Sources */,
 				E9E9CE502698156A005C03B3 /* UIColor+hex.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,

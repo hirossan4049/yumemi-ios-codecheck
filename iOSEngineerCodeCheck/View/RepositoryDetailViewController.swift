@@ -15,11 +15,14 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var starsCountLabel: UILabel!
-    @IBOutlet weak var watchersCountLabel: UILabel!
-    @IBOutlet weak var forksCountLabel: UILabel!
-    @IBOutlet weak var issuesCountLabel: UILabel!
+    
     @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBOutlet weak var repositoryDetailCounterViewsScrollView: UIScrollView!
+    @IBOutlet weak var starsRepositoryDetailCounterView: RepositoryDetailCounterView!
+    @IBOutlet weak var watchersRepositoryDetailCounterView: RepositoryDetailCounterView!
+    @IBOutlet weak var forksRepositoryDetailCounterView: RepositoryDetailCounterView!
+    @IBOutlet weak var issuesRepositoryDetailCounterView: RepositoryDetailCounterView!
 
     var repository: Repository?
 
@@ -30,16 +33,21 @@ class RepositoryDetailViewController: UIViewController {
     }
     
     private func setupView() {
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+        repositoryDetailCounterViewsScrollView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
         navigationItem.largeTitleDisplayMode = .never
         title = "\(repository?.owner?.username ?? "")/\(repository?.name ?? "")"
         
         titleLabel.text = "\(repository?.name ?? "")"
         usernameLabel.text = "\(repository?.owner?.username ?? "")"
         languageLabel.text = "Written in \(repository?.language ?? "")"
-        starsCountLabel.text = "\(repository?.starCount ?? 0) stars"
-        watchersCountLabel.text = "\(repository?.watcherCount ?? 0) watchers"
-        forksCountLabel.text = "\(repository?.forkCount ?? 0) forks"
-        issuesCountLabel.text = "\(repository?.issueCount ?? 0) open issues"
+        
+        starsRepositoryDetailCounterView.counter = "\(repository?.starCount ?? 0)"
+        watchersRepositoryDetailCounterView.counter = "\(repository?.watcherCount ?? 0)"
+        forksRepositoryDetailCounterView.counter = "\(repository?.forkCount ?? 0)"
+        issuesRepositoryDetailCounterView.counter = "\(repository?.issueCount ?? 0)"
         descriptionTextView.text = "\(repository?.description ?? "")"
         
         usernameLabel.textColor = .tertiaryLabelColor

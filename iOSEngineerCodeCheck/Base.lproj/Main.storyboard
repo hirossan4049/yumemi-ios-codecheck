@@ -46,80 +46,124 @@
                                     <constraint firstAttribute="height" constant="92" id="gHH-Eq-fnt"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-pG-WSB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-pG-WSB">
                                 <rect key="frame" x="130" y="120" width="266" height="31.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO1-0R-a8V">
-                                <rect key="frame" x="130" y="151.5" width="266" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fO1-0R-a8V">
+                                <rect key="frame" x="130" y="151.5" width="266" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3M-QO-Kom">
-                                <rect key="frame" x="130" y="178" width="266" height="20.5"/>
+                                <rect key="frame" x="130" y="175.5" width="266" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0gb-01-GLC">
-                                <rect key="frame" x="329" y="230.5" width="65" height="120"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WZ-UA-R8O">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <color key="textColor" systemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wathcers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQC-lo-IqN">
-                                        <rect key="frame" x="0.0" y="34" width="65" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <color key="textColor" systemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMv-4f-X2V">
-                                        <rect key="frame" x="0.0" y="68" width="65" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <color key="textColor" systemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issues" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzg-K8-h2L">
-                                        <rect key="frame" x="0.0" y="102" width="65" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <color key="textColor" systemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-dZ-5LE">
-                                <rect key="frame" x="0.0" y="382.5" width="414" height="479.5"/>
+                                <rect key="frame" x="0.0" y="378" width="414" height="484"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnA-pD-E6J">
+                                <rect key="frame" x="0.0" y="236" width="414" height="130"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="AQG-kn-Eiz">
+                                        <rect key="frame" x="0.0" y="5" width="427" height="120"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zm-Ql-44p" customClass="RepositoryDetailCounterView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="45X-0F-ctQ"/>
+                                                    <constraint firstAttribute="width" constant="100" id="sBU-y9-IdJ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Stars"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="stars-icon"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="counter" value="20002"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Al8-iC-mVF" customClass="RepositoryDetailCounterView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
+                                                <rect key="frame" x="109" y="0.0" width="100" height="120"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="R0T-9p-iT9"/>
+                                                    <constraint firstAttribute="height" constant="120" id="xI7-Z7-wpR"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Watchers"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="watchers-icon"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="counter" value="20002"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Nj-UN-XET" customClass="RepositoryDetailCounterView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
+                                                <rect key="frame" x="218" y="0.0" width="100" height="120"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="ia4-OC-Vl5"/>
+                                                    <constraint firstAttribute="height" constant="120" id="x0e-hP-ipR"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Forks"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="forks-icon"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="counter" value="20002"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MD-3N-kV8" customClass="RepositoryDetailCounterView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
+                                                <rect key="frame" x="327" y="0.0" width="100" height="120"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="IHn-hb-0c1"/>
+                                                    <constraint firstAttribute="height" constant="120" id="Lb0-nr-uyW"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Issues"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="exclamationmark.circle" catalog="system"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="counter" value="20002"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="6QO-DK-FUl"/>
+                                    <constraint firstItem="AQG-kn-Eiz" firstAttribute="width" secondItem="309-fI-dm0" secondAttribute="width" id="Gp5-bK-3xk"/>
+                                    <constraint firstItem="AQG-kn-Eiz" firstAttribute="height" secondItem="309-fI-dm0" secondAttribute="height" id="MFv-dy-PUn"/>
+                                    <constraint firstItem="AQG-kn-Eiz" firstAttribute="top" secondItem="B2L-66-zZJ" secondAttribute="top" constant="5" id="gEW-8V-woF"/>
+                                    <constraint firstItem="AQG-kn-Eiz" firstAttribute="leading" secondItem="DnA-pD-E6J" secondAttribute="leading" id="i4w-kk-1fE"/>
+                                    <constraint firstItem="AQG-kn-Eiz" firstAttribute="bottom" secondItem="309-fI-dm0" secondAttribute="bottom" constant="5" id="rCD-AP-u7N"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="309-fI-dm0"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="B2L-66-zZJ"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="srK-fe-i1b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QQS-dZ-5LE" firstAttribute="leading" secondItem="srK-fe-i1b" secondAttribute="leading" id="0SJ-OD-Vgf"/>
                             <constraint firstItem="4q1-pG-WSB" firstAttribute="top" secondItem="srK-fe-i1b" secondAttribute="top" constant="32" id="0uh-tv-ZVR"/>
-                            <constraint firstItem="srK-fe-i1b" firstAttribute="trailing" secondItem="0gb-01-GLC" secondAttribute="trailing" constant="20" id="1AR-VJ-f6q"/>
                             <constraint firstItem="QQS-dZ-5LE" firstAttribute="trailing" secondItem="srK-fe-i1b" secondAttribute="trailing" id="2oF-MN-Zob"/>
                             <constraint firstItem="srK-fe-i1b" firstAttribute="trailing" secondItem="fO1-0R-a8V" secondAttribute="trailing" constant="18" id="3F6-qs-s69"/>
+                            <constraint firstItem="srK-fe-i1b" firstAttribute="trailing" secondItem="DnA-pD-E6J" secondAttribute="trailing" id="4ae-ma-zHF"/>
                             <constraint firstItem="s3M-QO-Kom" firstAttribute="leading" secondItem="Iim-eb-8Ad" secondAttribute="trailing" constant="18" id="BDx-mv-Et0"/>
                             <constraint firstItem="fO1-0R-a8V" firstAttribute="top" secondItem="4q1-pG-WSB" secondAttribute="bottom" id="Cxe-IG-dm7"/>
                             <constraint firstItem="fO1-0R-a8V" firstAttribute="leading" secondItem="Iim-eb-8Ad" secondAttribute="trailing" constant="18" id="GCS-4S-97u"/>
                             <constraint firstItem="srK-fe-i1b" firstAttribute="bottom" secondItem="QQS-dZ-5LE" secondAttribute="bottom" id="P3q-Xj-rsB"/>
+                            <constraint firstItem="DnA-pD-E6J" firstAttribute="top" secondItem="Iim-eb-8Ad" secondAttribute="bottom" constant="24" id="S7f-2I-hZZ"/>
                             <constraint firstItem="s3M-QO-Kom" firstAttribute="top" secondItem="fO1-0R-a8V" secondAttribute="bottom" constant="6" id="SIi-uT-TQU"/>
-                            <constraint firstItem="0gb-01-GLC" firstAttribute="top" secondItem="s3M-QO-Kom" secondAttribute="bottom" constant="32" id="Xho-Iz-Wlx"/>
                             <constraint firstItem="Iim-eb-8Ad" firstAttribute="top" secondItem="srK-fe-i1b" secondAttribute="top" constant="32" id="aZA-wG-tfO"/>
                             <constraint firstItem="4q1-pG-WSB" firstAttribute="leading" secondItem="Iim-eb-8Ad" secondAttribute="trailing" constant="18" id="arD-Pp-dWv"/>
-                            <constraint firstItem="QQS-dZ-5LE" firstAttribute="top" secondItem="0gb-01-GLC" secondAttribute="bottom" constant="32" id="daN-j6-9GE"/>
+                            <constraint firstItem="QQS-dZ-5LE" firstAttribute="top" secondItem="DnA-pD-E6J" secondAttribute="bottom" constant="12" id="gBK-dj-W7Y"/>
                             <constraint firstItem="srK-fe-i1b" firstAttribute="trailing" secondItem="4q1-pG-WSB" secondAttribute="trailing" constant="18" id="m4Y-9m-LpF"/>
                             <constraint firstItem="Iim-eb-8Ad" firstAttribute="leading" secondItem="srK-fe-i1b" secondAttribute="leading" constant="20" id="qHG-gW-Cnf"/>
+                            <constraint firstItem="DnA-pD-E6J" firstAttribute="leading" secondItem="srK-fe-i1b" secondAttribute="leading" id="sWy-b3-bIS"/>
                             <constraint firstItem="srK-fe-i1b" firstAttribute="trailing" secondItem="s3M-QO-Kom" secondAttribute="trailing" constant="18" id="wjB-u7-OSf"/>
                         </constraints>
                     </view>
@@ -127,13 +171,14 @@
                     <connections>
                         <outlet property="avatarImageView" destination="Iim-eb-8Ad" id="ck3-ps-os8"/>
                         <outlet property="descriptionTextView" destination="QQS-dZ-5LE" id="42s-qj-w6X"/>
-                        <outlet property="forksCountLabel" destination="ZMv-4f-X2V" id="TYp-yk-P6d"/>
-                        <outlet property="issuesCountLabel" destination="dzg-K8-h2L" id="uvO-Os-UDm"/>
+                        <outlet property="forksRepositoryDetailCounterView" destination="0Nj-UN-XET" id="NaT-eX-QK0"/>
+                        <outlet property="issuesRepositoryDetailCounterView" destination="6MD-3N-kV8" id="8Ev-Wt-RDW"/>
                         <outlet property="languageLabel" destination="s3M-QO-Kom" id="WS6-0o-axu"/>
-                        <outlet property="starsCountLabel" destination="0WZ-UA-R8O" id="h1F-gv-CYl"/>
+                        <outlet property="repositoryDetailCounterViewsScrollView" destination="DnA-pD-E6J" id="322-LP-fmN"/>
+                        <outlet property="starsRepositoryDetailCounterView" destination="5zm-Ql-44p" id="Hfk-hU-FEd"/>
                         <outlet property="titleLabel" destination="4q1-pG-WSB" id="Iez-hV-bph"/>
                         <outlet property="usernameLabel" destination="fO1-0R-a8V" id="4Vb-ai-7O0"/>
-                        <outlet property="watchersCountLabel" destination="lQC-lo-IqN" id="Eel-Y7-ayv"/>
+                        <outlet property="watchersRepositoryDetailCounterView" destination="Al8-iC-mVF" id="uty-xT-9cH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj0-Ld-RTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -158,11 +203,15 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
+        <image name="forks-icon" width="9.4960002899169922" height="10.866000175476074"/>
+        <image name="stars-icon" width="12.312000274658203" height="11.767999649047852"/>
+        <image name="watchers-icon" width="12.612000465393066" height="4.504000186920166"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
