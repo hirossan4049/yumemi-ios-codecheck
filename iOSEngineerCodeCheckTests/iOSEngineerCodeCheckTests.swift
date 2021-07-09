@@ -30,5 +30,14 @@ class iOSEngineerCodeCheckTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testAPI() throws {
+        let api = GithubAPI.shared
+        
+        api.fetchSearchRepositories(text: "Realm") { repos in
+            let repo = try? XCTUnwrap(repos.first)
+            XCTAssertEqual(repo?.name, "realm-cocoa")
+        }
+    }
 
 }

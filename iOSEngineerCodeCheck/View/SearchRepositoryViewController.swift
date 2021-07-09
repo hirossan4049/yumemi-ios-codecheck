@@ -78,6 +78,7 @@ class SearchRepositoryViewController: UITableViewController {
         cell.watchersCountLabel.text = "\(repo.watcherCount ?? 0)"
         cell.starsCountLabel.text = "\(repo.starCount ?? 0)"
         cell.forksCountLabel.text = "\(repo.forkCount ?? 0)"
+        cell.userIconImageView.image = nil
 
         guard let imgURLString = repo.owner?.avatarImageURL else {
             return cell
