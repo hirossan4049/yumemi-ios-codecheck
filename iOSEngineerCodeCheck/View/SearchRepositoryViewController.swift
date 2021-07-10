@@ -23,10 +23,15 @@ class SearchRepositoryViewController: UITableViewController {
         // Do any additional setup after loading the view.
         let presenter = SearchRepositoryPresenter(view: self)
         inject(presenter: presenter)
+        self.presenter?.viewDidLoad()
         
         title = "Search"
         
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter?.viewWillApper()
     }
     
 
@@ -76,13 +81,15 @@ class SearchRepositoryViewController: UITableViewController {
         cell.selectionStyle = .none
 
         guard let repo = self.presenter?.repositories[indexPath.row] else { return cell }
-        cell.titleLabel.text =  repo.name
+        cell.titleLabel.text = repo.name
         cell.usernameLabel.text = repo.owner?.username
         cell.descriptionLabel.text = repo.description
         cell.watchersCountLabel.text = "\(repo.watcherCount ?? 0)"
         cell.starsCountLabel.text = "\(repo.starCount ?? 0)"
         cell.forksCountLabel.text = "\(repo.forkCount ?? 0)"
         cell.userIconImageView.image = nil
+        
+        cell.isFavorited = (presenter?.isFavoritedRepositories[indexPath.row] ?? false)
 
         guard let imgURLString = repo.owner?.avatarImageURL else {
             return cell
@@ -102,6 +109,7 @@ class SearchRepositoryViewController: UITableViewController {
     // Cell選択時に呼ばれる
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
+        presenter?.favoriteRepositories(indexPath: indexPath)
         performSegue(withIdentifier: "Detail", sender: self)
     }
 
@@ -121,5 +129,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate {
 }
 
 extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
-    
+    func reload() {
+        tableView.reloadData()
+    }
 }

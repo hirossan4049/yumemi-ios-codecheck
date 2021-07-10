@@ -19,8 +19,9 @@ class GithubAPI: GithubAPIInput {
     private var task: URLSessionTask?
     
     func fetchSearchRepositories(text: String, completion: @escaping ([Repository]) -> ()){
-        let url = "https://api.github.com/search/repositories?q=\(text)"
-        task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
+        let urlText = "https://api.github.com/search/repositories?q=\(text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
+        guard let url = URL(string: urlText) else { return }
+        task = URLSession.shared.dataTask(with: url) { (data, res, err) in
             guard let data = data else { return }
             guard let repos = try? JSONDecoder().decode(Repositories.self, from: data) else { return }
             completion(repos.items)

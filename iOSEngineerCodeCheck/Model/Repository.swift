@@ -10,6 +10,7 @@ struct Repositories: Codable {
 }
 
 struct Repository: Codable{
+    var id: Int?
     var name: String?
     var description: String?
     var language: String?
@@ -21,6 +22,7 @@ struct Repository: Codable{
 
 
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case description
         case language

@@ -26,6 +26,10 @@
 		E9E9CE502698156A005C03B3 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */; };
 		E9E9CE5B26987A32005C03B3 /* RepositoryDetailCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE5A26987A32005C03B3 /* RepositoryDetailCounterView.swift */; };
 		E9E9CE6326987A40005C03B3 /* RepositoryDetailCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E9CE6226987A3F005C03B3 /* RepositoryDetailCounterView.xib */; };
+		E9E9CE6926993EEC005C03B3 /* CoreDataRepository.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE6726993EEA005C03B3 /* CoreDataRepository.xcdatamodeld */; };
+		E9E9CE6E269950B3005C03B3 /* FevoriteRepositoryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE6D269950B3005C03B3 /* FevoriteRepositoryDataManager.swift */; };
+		E9E9CE792699D869005C03B3 /* FavoriteRepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE782699D868005C03B3 /* FavoriteRepositoryTableViewController.swift */; };
+		E9E9CE812699D88E005C03B3 /* FavoriteRepositoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9CE802699D88E005C03B3 /* FavoriteRepositoryPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		E9E9CE4F2698156A005C03B3 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		E9E9CE5A26987A32005C03B3 /* RepositoryDetailCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCounterView.swift; sourceTree = "<group>"; };
 		E9E9CE6226987A3F005C03B3 /* RepositoryDetailCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryDetailCounterView.xib; sourceTree = "<group>"; };
+		E9E9CE6826993EEA005C03B3 /* Repository.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Repository.xcdatamodel; sourceTree = "<group>"; };
+		E9E9CE6D269950B3005C03B3 /* FevoriteRepositoryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FevoriteRepositoryDataManager.swift; sourceTree = "<group>"; };
+		E9E9CE782699D868005C03B3 /* FavoriteRepositoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryTableViewController.swift; sourceTree = "<group>"; };
+		E9E9CE802699D88E005C03B3 /* FavoriteRepositoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E9CE252696C8DD005C03B3 /* SearchRepositoryPresenter.swift */,
+				E9E9CE802699D88E005C03B3 /* FavoriteRepositoryPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -167,6 +176,7 @@
 				E9E9CE3D269742D2005C03B3 /* Cell */,
 				BFD945E2244DC5E80012785A /* SearchRepositoryViewController.swift */,
 				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
+				E9E9CE782699D868005C03B3 /* FavoriteRepositoryTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +195,8 @@
 			children = (
 				E9E9CE1A26956CBD005C03B3 /* Repository.swift */,
 				E9E9CE312696D3FA005C03B3 /* GithubAPI.swift */,
+				E9E9CE6726993EEA005C03B3 /* CoreDataRepository.xcdatamodeld */,
+				E9E9CE6D269950B3005C03B3 /* FevoriteRepositoryDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,10 +367,14 @@
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
 				E9E9CE4326981420005C03B3 /* UIColor+theme.swift in Sources */,
 				E9E9CE38269742CD005C03B3 /* RepositoryTableViewCell.swift in Sources */,
+				E9E9CE792699D869005C03B3 /* FavoriteRepositoryTableViewController.swift in Sources */,
+				E9E9CE6E269950B3005C03B3 /* FevoriteRepositoryDataManager.swift in Sources */,
+				E9E9CE6926993EEC005C03B3 /* CoreDataRepository.xcdatamodeld in Sources */,
 				E9E9CE48269814CE005C03B3 /* String+leftPadding.swift in Sources */,
 				E9E9CE5B26987A32005C03B3 /* RepositoryDetailCounterView.swift in Sources */,
 				E9E9CE1B26956CBD005C03B3 /* Repository.swift in Sources */,
 				E9E9CE502698156A005C03B3 /* UIColor+hex.swift in Sources */,
+				E9E9CE812699D88E005C03B3 /* FavoriteRepositoryPresenter.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E9E9CE322696D3FA005C03B3 /* GithubAPI.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
@@ -690,6 +706,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E9E9CE6726993EEA005C03B3 /* CoreDataRepository.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E9E9CE6826993EEA005C03B3 /* Repository.xcdatamodel */,
+			);
+			currentVersion = E9E9CE6826993EEA005C03B3 /* Repository.xcdatamodel */;
+			path = CoreDataRepository.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BFD945D3244DC5E80012785A /* Project object */;
 }

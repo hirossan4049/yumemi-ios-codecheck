@@ -19,6 +19,16 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var watchersCountLabel: UILabel!
     @IBOutlet weak var starsCountLabel: UILabel!
     @IBOutlet weak var forksCountLabel: UILabel!
+    
+    @IBOutlet weak var favoriteView: UIView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
+    
+    public var isFavorited = false {
+        didSet {
+            favoriteView.isHidden = !isFavorited
+            favoriteImageView.isHidden = !isFavorited
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +43,9 @@ class RepositoryTableViewCell: UITableViewCell {
         backView.layer.shadowColor = UIColor.black.cgColor
         backView.layer.shadowOpacity = 0.04
         backView.layer.shadowRadius = 4
+        backView.clipsToBounds = true
+        
+        favoriteView.transform = CGAffineTransform(rotationAngle: 45 * CGFloat.pi / 180);
         
         usernameLabel.textColor = .tertiaryLabelColor
         
