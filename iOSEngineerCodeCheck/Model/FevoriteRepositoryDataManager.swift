@@ -79,6 +79,20 @@ class FevoriteRepositoryDataManager {
         }
     }
     
+    func coreDataRepository2Repository(coreDataRepository: CoreDataRepository) -> Repository {
+        return Repository(id: Int(coreDataRepository.id),
+                              name: coreDataRepository.name,
+                              description: coreDataRepository.descriptionText,
+                              language: coreDataRepository.language,
+                              starCount: Int(coreDataRepository.starCount),
+                              watcherCount: Int(coreDataRepository.watcherCount),
+                              forkCount: Int(coreDataRepository.forkCount),
+                              issueCount: Int(coreDataRepository.issueCount),
+                              owner: Repository.Owner(username: coreDataRepository.username ?? "",
+                                                      avatarImageURL: coreDataRepository.avatarImageURL ?? "")
+        )
+    }
+    
     func getFetchedResultController<T: NSManagedObject>(with descriptor: [String] = []) -> NSFetchedResultsController<T> {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))

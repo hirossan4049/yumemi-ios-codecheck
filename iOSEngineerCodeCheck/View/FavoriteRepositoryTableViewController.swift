@@ -9,8 +9,6 @@
 import UIKit
 
 class FavoriteRepositoryTableViewController: UITableViewController {
-
-    private(set) var selectedIndex: Int?
     
     private var presenter: FavoriteRepositoryPresenterInput?
     
@@ -43,18 +41,11 @@ class FavoriteRepositoryTableViewController: UITableViewController {
         self.view.backgroundColor = .backgroundColor
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "Detail" {
-//            guard let dtl = segue.destination as? RepositoryDetailViewController else { return }
-//            guard let index = selectedIndex else { return }
-//            dtl.repository = self.presenter?.repositories[index]
-//        }
-//    }
 
     // MARK: TableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  self.presenter?.favoritedCoreDataRepositories.count ?? 0
+        return self.presenter?.favoritedCoreDataRepositories.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,11 +60,6 @@ class FavoriteRepositoryTableViewController: UITableViewController {
         cell.starsCountLabel.text = "\(repo.starCount)"
         cell.forksCountLabel.text = "\(repo.forkCount)"
         cell.userIconImageView.image = nil
-        
-//        cell.backView.backgroundColor = .white
-//        if (presenter?.isFavoritedRepositories[indexPath.row] ?? false) {
-//            cell.backView.backgroundColor = .red
-//        }
 
         guard let imgURLString = repo.avatarImageURL else {
             return cell
@@ -92,9 +78,10 @@ class FavoriteRepositoryTableViewController: UITableViewController {
 
     // Cell選択時に呼ばれる
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-//        presenter?.favoriteRepositories(indexPath: indexPath)
-        performSegue(withIdentifier: "Detail", sender: self)
+        let vc = storyboard?.instantiateViewController(identifier: "RepositoryDetailView") as! RepositoryDetailViewController
+        guard let repository = self.presenter?.getRepository(index: indexPath.row) else { return }
+        vc.repository = repository
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // Cell長押しでContextMenuが開く

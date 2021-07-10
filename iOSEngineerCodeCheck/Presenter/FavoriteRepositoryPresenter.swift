@@ -12,6 +12,7 @@ protocol FavoriteRepositoryPresenterInput {
     func viewDidLoad()
     func viewWillApper()
     func deleteFevoriteRepository(indexPath: IndexPath)
+    func getRepository(index: Int) -> Repository?
     
     var favoritedCoreDataRepositories: [CoreDataRepository] { get }
 }
@@ -50,6 +51,10 @@ final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
             self.favoritedCoreDataRepositories = repo ?? []
             self.view?.reload()
         })
+    }
+    
+    func getRepository(index: Int) -> Repository? {
+        return dataManager?.coreDataRepository2Repository(coreDataRepository: favoritedCoreDataRepositories[index])
     }
 
 }

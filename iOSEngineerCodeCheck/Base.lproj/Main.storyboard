@@ -23,9 +23,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ktq-eC-ZBq"/>
-                    <connections>
-                        <segue destination="AHY-RL-7mG" kind="show" identifier="Detail" id="qqd-8W-4W1"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xer-fe-JeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,44 +31,44 @@
         <!--Repository Detail View Controller-->
         <scene sceneID="JOC-74-7VT">
             <objects>
-                <viewController id="AHY-RL-7mG" customClass="RepositoryDetailViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoryDetailView" id="AHY-RL-7mG" customClass="RepositoryDetailViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gp-25-lRZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iim-eb-8Ad">
-                                <rect key="frame" x="20" y="120" width="92" height="92"/>
+                                <rect key="frame" x="20" y="76" width="92" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Tjy-gu-fPK"/>
                                     <constraint firstAttribute="height" constant="92" id="gHH-Eq-fnt"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-pG-WSB">
-                                <rect key="frame" x="130" y="120" width="266" height="31.5"/>
+                                <rect key="frame" x="130" y="76" width="266" height="31.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fO1-0R-a8V">
-                                <rect key="frame" x="130" y="151.5" width="266" height="18"/>
+                                <rect key="frame" x="130" y="107.5" width="266" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3M-QO-Kom">
-                                <rect key="frame" x="130" y="175.5" width="266" height="20.5"/>
+                                <rect key="frame" x="130" y="131.5" width="266" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-dZ-5LE">
-                                <rect key="frame" x="0.0" y="378" width="414" height="435"/>
+                                <rect key="frame" x="0.0" y="334" width="414" height="528"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnA-pD-E6J">
-                                <rect key="frame" x="0.0" y="236" width="414" height="130"/>
+                                <rect key="frame" x="0.0" y="192" width="414" height="130"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="AQG-kn-Eiz">
                                         <rect key="frame" x="0.0" y="5" width="427" height="120"/>

@@ -9,8 +9,6 @@
 import UIKit
 
 class SearchRepositoryViewController: UITableViewController {
-
-    private(set) var selectedIndex: Int?
     
     private var presenter: SearchRepositoryPresenterInput?
     
@@ -62,14 +60,6 @@ class SearchRepositoryViewController: UITableViewController {
         })
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail" {
-            guard let dtl = segue.destination as? RepositoryDetailViewController else { return }
-            guard let index = selectedIndex else { return }
-            dtl.repository = self.presenter?.repositories[index]
-        }
-    }
-
     // MARK: TableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,8 +98,9 @@ class SearchRepositoryViewController: UITableViewController {
 
     // Cell選択時に呼ばれる
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
+        let vc = storyboard?.instantiateViewController(identifier: "RepositoryDetailView") as! RepositoryDetailViewController
+        vc.repository = self.presenter?.repositories[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // Cell長押しでContextMenuが開く
