@@ -12,9 +12,11 @@ import Foundation
 protocol SearchRepositoryPresenterInput {
     func viewDidLoad()
     func viewWillApper()
-    func favoriteRepositories(indexPath: IndexPath)
+    func favoriteRepository(indexPath: IndexPath)
+    func deleteFevoriteRepository(indexPath: IndexPath)
     func searchRepositories(text: String, completion: @escaping(() -> ()))
     func cancelSearch()
+    
     var repositories: [Repository] {get}
     var isFavoritedRepositories: [Bool] {get}
 }
@@ -50,21 +52,37 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
     func viewWillApper() {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
+            self.searchFavoritedRepositories()
             self.view?.reload()
         })
     }
     
-    func favoriteRepositories(indexPath: IndexPath) {
+    func favoriteRepository(indexPath: IndexPath) {
         let repository = repositories[indexPath.row]
-        // すでにfavorite済みかどうか
-        if isFavorited(repository: repository) {
-            return
-        }
         dataManager?.addItem(repository: repository)
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
+            self.searchFavoritedRepositories()
+            self.view?.reload()
         })
-        view?.reload()
+    }
+    
+    func deleteFevoriteRepository(indexPath: IndexPath) {
+        let id = repositories[indexPath.row].id
+        var coredataRepo: CoreDataRepository?
+        for repo in self.favoritedCoreDataRepositories {
+            if Int(repo.id) == id {
+                coredataRepo = repo
+                break
+            }
+        }
+        if coredataRepo == nil { return }
+        dataManager?.delete(coredataRepo!)
+        dataManager?.fetchItems(completion: { (repo) in
+            self.favoritedCoreDataRepositories = repo ?? []
+            self.searchFavoritedRepositories()
+            self.view?.reload()
+        })
     }
     
     

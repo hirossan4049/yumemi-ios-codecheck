@@ -109,8 +109,32 @@ class SearchRepositoryViewController: UITableViewController {
     // Cell選択時に呼ばれる
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        presenter?.favoriteRepositories(indexPath: indexPath)
         performSegue(withIdentifier: "Detail", sender: self)
+    }
+    
+    // Cell長押しでContextMenuが開く
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+            
+            let isFavorite = self.presenter?.isFavoritedRepositories[indexPath.row] ?? false
+            if isFavorite {
+                let deleteFavorite = UIAction(title: "Delete favorite", image: UIImage(systemName: "heart.slash")) { action in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.presenter?.deleteFevoriteRepository(indexPath: indexPath)
+                    }
+                }
+                
+                return UIMenu(title: "", children: [deleteFavorite])
+            }else {
+                let favorite = UIAction(title: "Favorite", image: UIImage(systemName: "heart")) { action in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.presenter?.favoriteRepository(indexPath: indexPath)
+                    }
+                }
+                
+                return UIMenu(title: "", children: [favorite])
+            }
+        })
     }
 
 }

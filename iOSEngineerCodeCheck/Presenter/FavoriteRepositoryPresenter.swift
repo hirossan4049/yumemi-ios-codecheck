@@ -11,6 +11,7 @@ import Foundation
 protocol FavoriteRepositoryPresenterInput {
     func viewDidLoad()
     func viewWillApper()
+    func deleteFevoriteRepository(indexPath: IndexPath)
     
     var favoritedCoreDataRepositories: [CoreDataRepository] { get }
 }
@@ -39,6 +40,14 @@ final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
     func viewWillApper() {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo?.reversed() ?? []
+            self.view?.reload()
+        })
+    }
+    
+    func deleteFevoriteRepository(indexPath: IndexPath) {
+        dataManager?.delete(favoritedCoreDataRepositories[indexPath.row])
+        dataManager?.fetchItems(completion: { (repo) in
+            self.favoritedCoreDataRepositories = repo ?? []
             self.view?.reload()
         })
     }

@@ -175,8 +175,8 @@
 				E9E9CE592698786E005C03B3 /* Component */,
 				E9E9CE3D269742D2005C03B3 /* Cell */,
 				BFD945E2244DC5E80012785A /* SearchRepositoryViewController.swift */,
-				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
 				E9E9CE782699D868005C03B3 /* FavoriteRepositoryTableViewController.swift */,
+				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

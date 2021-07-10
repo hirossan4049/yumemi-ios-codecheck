@@ -96,6 +96,18 @@ class FavoriteRepositoryTableViewController: UITableViewController {
 //        presenter?.favoriteRepositories(indexPath: indexPath)
         performSegue(withIdentifier: "Detail", sender: self)
     }
+    
+    // Cell長押しでContextMenuが開く
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+
+            let deleteFavorite = UIAction(title: "Delete favorite", image: UIImage(systemName: "heart.slash")) { action in
+                self.presenter?.deleteFevoriteRepository(indexPath: indexPath)
+            }
+
+            return UIMenu(title: "", children: [deleteFavorite])
+        })
+    }
 
 }
 
