@@ -110,7 +110,7 @@ class SearchRepositoryViewController: UITableViewController {
             let isFavorite = self.presenter?.isFavoritedRepositories[indexPath.row] ?? false
             if isFavorite {
                 let deleteFavorite = UIAction(title: "Delete favorite", image: UIImage(systemName: "heart.slash")) { action in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         self.presenter?.deleteFevoriteRepository(indexPath: indexPath)
                     }
                 }
@@ -118,7 +118,7 @@ class SearchRepositoryViewController: UITableViewController {
                 return UIMenu(title: "", children: [deleteFavorite])
             }else {
                 let favorite = UIAction(title: "Favorite", image: UIImage(systemName: "heart")) { action in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         self.presenter?.favoriteRepository(indexPath: indexPath)
                     }
                 }
@@ -147,4 +147,11 @@ extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
     func reload() {
         tableView.reloadData()
     }
+
+    
+    func updateCellisFavorite(indexPath: IndexPath, isFavorite: Bool) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RepositoryTableViewCell else { return }
+        cell.isFavorited = isFavorite
+    }
+    
 }

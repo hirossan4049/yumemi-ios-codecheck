@@ -37,6 +37,8 @@ class RepositoryTableViewCell: UITableViewCell {
     }
     
     func setupView() {
+        backgroundColor = .backgroundColor
+        
         backView.backgroundColor = .secondaryBackgroundColor
         backView.layer.cornerRadius = 14
         backView.layer.shadowOffset = CGSize(width: 0, height: 2)

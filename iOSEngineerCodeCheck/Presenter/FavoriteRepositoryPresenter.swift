@@ -19,6 +19,7 @@ protocol FavoriteRepositoryPresenterInput {
 
 protocol FavoriteRepositoryPresenterOutput: AnyObject {
     func reload()
+    func deleteCell(indexPath: IndexPath)
 }
 
 final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
@@ -49,7 +50,7 @@ final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
         dataManager?.delete(favoritedCoreDataRepositories[indexPath.row])
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
-            self.view?.reload()
+            self.view?.deleteCell(indexPath: indexPath)
         })
     }
     

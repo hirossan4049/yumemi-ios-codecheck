@@ -78,7 +78,7 @@ class FavoriteRepositoryTableViewController: UITableViewController {
 
     // Cell選択時に呼ばれる
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(identifier: "RepositoryDetailView") as! RepositoryDetailViewController
+        guard let vc = storyboard?.instantiateViewController(identifier: "RepositoryDetailView") as? RepositoryDetailViewController else { return }
         guard let repository = self.presenter?.getRepository(index: indexPath.row) else { return }
         vc.repository = repository
         navigationController?.pushViewController(vc, animated: true)
@@ -101,5 +101,9 @@ class FavoriteRepositoryTableViewController: UITableViewController {
 extension FavoriteRepositoryTableViewController: FavoriteRepositoryPresenterOutput {
     func reload() {
         tableView.reloadData()
+    }
+
+    func deleteCell(indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

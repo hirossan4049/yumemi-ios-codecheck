@@ -24,6 +24,7 @@ protocol SearchRepositoryPresenterInput {
 
 protocol SearchRepositoryPresenterOutput: AnyObject {
     func reload()
+    func updateCellisFavorite(indexPath: IndexPath, isFavorite: Bool)
 }
 
 final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
@@ -63,7 +64,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
             self.searchFavoritedRepositories()
-            self.view?.reload()
+            self.view?.updateCellisFavorite(indexPath: indexPath, isFavorite: true)
         })
     }
     
@@ -81,7 +82,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
             self.searchFavoritedRepositories()
-            self.view?.reload()
+            self.view?.updateCellisFavorite(indexPath: indexPath, isFavorite: false)
         })
     }
     
