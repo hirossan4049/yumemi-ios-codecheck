@@ -36,13 +36,42 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
     func testRepositoryCellTap() {
         let app = XCUIApplication()
         app.launch()
-                
+        
+        app.tabBars["Tab Bar"].buttons["Search"].tap()
+        
         let textField = XCUIApplication().navigationBars["Search"].searchFields["GitHubのリポジトリを検索できるよー"]
         textField.tap()
         textField.typeText("Realm")
-        XCUIApplication()/*@START_MENU_TOKEN@*/.buttons["Search"]/*[[".keyboards",".buttons[\"search\"]",".buttons[\"Search\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.buttons["Search"].tap()
         sleep(3)
-        app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Realm is a mobile database: a replacement for Core Data & SQLite")/*[[".cells.containing(.staticText, identifier:\"realm-cocoa\")",".cells.containing(.staticText, identifier:\"1968\")",".cells.containing(.staticText, identifier:\"14531\")",".cells.containing(.staticText, identifier:\"Realm is a mobile database: a replacement for Core Data & SQLite\")"],[[[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["realm"].tap()
+        app.tables.cells.firstMatch.press(forDuration: 1)
+    }
+    
+    func testRepositoryFavorite() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.tabBars["Tab Bar"].buttons["Search"].tap()
+        
+        let textField = XCUIApplication().navigationBars["Search"].searchFields["GitHubのリポジトリを検索できるよー"]
+        textField.tap()
+        textField.typeText("Realm")
+        app.keyboards.buttons["Search"].tap()
+        sleep(3)
+        app.tables.cells.firstMatch.press(forDuration: 1)
+        
+        let deleteFavBtn = app.collectionViews.buttons["Delete favorite"]
+        if deleteFavBtn.exists {
+            deleteFavBtn.tap()
+            app.tables.cells.firstMatch.press(forDuration: 1)
+        }
+        
+        app.collectionViews.buttons["Favorite"].tap()
+        
+        app.tabBars["Tab Bar"].buttons["Favorite"].tap()
+        
+        app.tables.staticTexts["realm"].press(forDuration: 1);
+        app.collectionViews.buttons["Delete favorite"].tap()
     }
 
     func testLaunchPerformance() throws {

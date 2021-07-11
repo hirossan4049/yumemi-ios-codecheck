@@ -79,6 +79,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
         }
         if coredataRepo == nil { return }
         dataManager?.delete(coredataRepo!)
+        dataManager?.saveContext()
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
             self.searchFavoritedRepositories()

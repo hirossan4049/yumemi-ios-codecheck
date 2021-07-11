@@ -48,6 +48,7 @@ final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
     
     func deleteFevoriteRepository(indexPath: IndexPath) {
         dataManager?.delete(favoritedCoreDataRepositories[indexPath.row])
+        dataManager?.saveContext()
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
             self.view?.deleteCell(indexPath: indexPath)

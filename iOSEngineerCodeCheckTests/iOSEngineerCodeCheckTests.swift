@@ -39,5 +39,28 @@ class iOSEngineerCodeCheckTests: XCTestCase {
             XCTAssertEqual(repo?.name, "realm-cocoa")
         }
     }
+    
+    func testCoreData() throws {
+       let dataManager = FevoriteRepositoryDataManager.shared
+        let testID = 1234567890
+        let repo = Repository(id: testID, name: "hello")
+        
+        dataManager.addItem(repository: repo)
+        var cdRepo: CoreDataRepository?
+        dataManager.fetchItems(completion: { (repo) in
+            XCTAssertNotNil(repo?.last?.id)
+            XCTAssertEqual(repo!.last!.id, Int32(testID))
+            cdRepo = repo?.last
+        })
+        
+        XCTAssertNotNil(cdRepo)
+        dataManager.delete(cdRepo!)
+        dataManager.saveContext()
+        
+        dataManager.fetchItems(completion: { (repo) in
+            guard let id = repo?.last?.id else { return }
+            XCTAssertNotEqual(id, Int32(testID))
+        })
+    }
 
 }
