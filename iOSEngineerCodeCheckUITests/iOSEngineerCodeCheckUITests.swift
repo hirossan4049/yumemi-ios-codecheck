@@ -42,9 +42,9 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
         let textField = XCUIApplication().navigationBars["Search"].searchFields["GitHubのリポジトリを検索できるよー"]
         textField.tap()
         textField.typeText("Realm")
-        app.buttons["Search"].tap()
+        app.keyboards.buttons["Search"].tap()
         sleep(3)
-        app.tables.cells.firstMatch.press(forDuration: 1)
+        app.tables.cells.firstMatch.tap()
     }
     
     func testRepositoryFavorite() {
