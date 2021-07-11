@@ -70,7 +70,7 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
         
         app.tabBars["Tab Bar"].buttons["Favorite"].tap()
         
-        app.tables.staticTexts["realm"].press(forDuration: 1);
+        app.tables.cells.firstMatch.press(forDuration: 1)
         app.collectionViews.buttons["Delete favorite"].tap()
     }
 
