@@ -9,7 +9,7 @@ struct Repositories: Codable {
     var items: [Repository]
 }
 
-struct Repository: Codable{
+struct Repository: Codable {
     var id: Int?
     var name: String?
     var description: String?

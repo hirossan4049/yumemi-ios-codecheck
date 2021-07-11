@@ -13,39 +13,39 @@ class FevoriteRepositoryDataManager {
     static let shared: FevoriteRepositoryDataManager = FevoriteRepositoryDataManager()
 
     private var persistentContainer: NSPersistentContainer!
-    
+
     private let entityName = "CoreDataRepository"
 
-   init() {
-       persistentContainer = NSPersistentContainer(name: entityName)
-       persistentContainer.loadPersistentStores { (storeDescription, error) in
-           if let error = error as NSError? {
-               fatalError("Unresolved error \(error), \(error.userInfo)")
-           }
-       }
-   }
+    init() {
+        persistentContainer = NSPersistentContainer(name: entityName)
+        persistentContainer.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+    }
 
-   func create<T: NSManagedObject>() -> T {
-       let context = persistentContainer.viewContext
-       let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.self), into: context) as! T
-       return object
-   }
+    func create<T: NSManagedObject>() -> T {
+        let context = persistentContainer.viewContext
+        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.self), into: context) as! T
+        return object
+    }
 
-   func delete<T: NSManagedObject>(_ object: T) {
-       let context = persistentContainer.viewContext
-       context.delete(object)
-   }
+    func delete<T: NSManagedObject>(_ object: T) {
+        let context = persistentContainer.viewContext
+        context.delete(object)
+    }
 
-   func saveContext() {
-       let context = persistentContainer.viewContext
-       do {
-           try context.save()
-       } catch {
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        do {
+            try context.save()
+        } catch {
 
-           print("Failed save context: \(error)")
-       }
-   }
-    
+            print("Failed save context: \(error)")
+        }
+    }
+
     func addItem(repository: Repository) {
         let context = persistentContainer.viewContext
         let coreData_repository = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! CoreDataRepository
@@ -68,7 +68,7 @@ class FevoriteRepositoryDataManager {
             }
         }
     }
-    
+
     func fetchItems(completion: @escaping ([CoreDataRepository]?) -> ()) {
         let request = NSFetchRequest<CoreDataRepository>(entityName: entityName)
         let context = persistentContainer.viewContext
@@ -78,25 +78,27 @@ class FevoriteRepositoryDataManager {
             completion(nil)
         }
     }
-    
+
     func coreDataRepository2Repository(coreDataRepository: CoreDataRepository) -> Repository {
         return Repository(id: Int(coreDataRepository.id),
-                              name: coreDataRepository.name,
-                              description: coreDataRepository.descriptionText,
-                              language: coreDataRepository.language,
-                              starCount: Int(coreDataRepository.starCount),
-                              watcherCount: Int(coreDataRepository.watcherCount),
-                              forkCount: Int(coreDataRepository.forkCount),
-                              issueCount: Int(coreDataRepository.issueCount),
-                              owner: Repository.Owner(username: coreDataRepository.username ?? "",
-                                                      avatarImageURL: coreDataRepository.avatarImageURL ?? "")
+                name: coreDataRepository.name,
+                description: coreDataRepository.descriptionText,
+                language: coreDataRepository.language,
+                starCount: Int(coreDataRepository.starCount),
+                watcherCount: Int(coreDataRepository.watcherCount),
+                forkCount: Int(coreDataRepository.forkCount),
+                issueCount: Int(coreDataRepository.issueCount),
+                owner: Repository.Owner(username: coreDataRepository.username ?? "",
+                        avatarImageURL: coreDataRepository.avatarImageURL ?? "")
         )
     }
-    
+
     func getFetchedResultController<T: NSManagedObject>(with descriptor: [String] = []) -> NSFetchedResultsController<T> {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
-        fetchRequest.sortDescriptors = descriptor.map { NSSortDescriptor(key: $0, ascending: true) }
+        fetchRequest.sortDescriptors = descriptor.map {
+            NSSortDescriptor(key: $0, ascending: true)
+        }
         return NSFetchedResultsController<T>(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
 }

@@ -10,30 +10,30 @@ import UIKit
 
 @IBDesignable
 class RepositoryDetailCounterView: UIView {
-    
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var counterLabel: UILabel!
-    
+
     @IBInspectable var title: String = "" {
         didSet {
             titleLabel?.text = title
         }
     }
-    
+
     @IBInspectable var iconImage: UIImage = UIImage() {
         didSet {
             iconImageView?.image = iconImage
         }
     }
-    
+
     @IBInspectable var counter: String = "" {
         didSet {
             counterLabel?.text = counter
         }
     }
-    
-    
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -45,7 +45,7 @@ class RepositoryDetailCounterView: UIView {
         loadNib()
         setUpView()
     }
-    
+
     func setUpView() {
         self.backgroundColor = .systemBackground
         layer.cornerRadius = 10
@@ -54,9 +54,8 @@ class RepositoryDetailCounterView: UIView {
         layer.shadowOpacity = 0.04
         layer.shadowRadius = 4
     }
-    
-    
-    
+
+
     func loadNib() {
         if let view = Bundle(for: type(of: self)).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?.first as? UIView {
             view.frame = self.bounds

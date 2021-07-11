@@ -14,11 +14,11 @@ protocol SearchRepositoryPresenterInput {
     func viewWillApper()
     func favoriteRepository(indexPath: IndexPath)
     func deleteFevoriteRepository(indexPath: IndexPath)
-    func searchRepositories(text: String, completion: @escaping(() -> ()))
+    func searchRepositories(text: String, completion: @escaping (() -> ()))
     func cancelSearch()
-    
-    var repositories: [Repository] {get}
-    var isFavoritedRepositories: [Bool] {get}
+
+    var repositories: [Repository] { get }
+    var isFavoritedRepositories: [Bool] { get }
 }
 
 
@@ -28,15 +28,15 @@ protocol SearchRepositoryPresenterOutput: AnyObject {
 }
 
 final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
-    
+
     private weak var view: SearchRepositoryPresenterOutput?
     private var api: GithubAPIInput?
     private var dataManager: FevoriteRepositoryDataManager?
-    
+
     private(set) var repositories: [Repository] = []
     private(set) var favoritedCoreDataRepositories: [CoreDataRepository] = []
     private(set) var isFavoritedRepositories: [Bool] = []
-        
+
     init(view: SearchRepositoryPresenterOutput,
          api: GithubAPIInput = GithubAPI.shared,
          dataManager: FevoriteRepositoryDataManager = FevoriteRepositoryDataManager.shared
@@ -45,11 +45,11 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
         self.api = api
         self.dataManager = dataManager
     }
-    
+
     func viewDidLoad() {
 
     }
-    
+
     func viewWillApper() {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
@@ -57,7 +57,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
             self.view?.reload()
         })
     }
-    
+
     func favoriteRepository(indexPath: IndexPath) {
         let repository = repositories[indexPath.row]
         dataManager?.addItem(repository: repository)
@@ -67,7 +67,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
             self.view?.updateCellisFavorite(indexPath: indexPath, isFavorite: true)
         })
     }
-    
+
     func deleteFevoriteRepository(indexPath: IndexPath) {
         let id = repositories[indexPath.row].id
         var coredataRepo: CoreDataRepository?
@@ -77,7 +77,9 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
                 break
             }
         }
-        if coredataRepo == nil { return }
+        if coredataRepo == nil {
+            return
+        }
         dataManager?.delete(coredataRepo!)
         dataManager?.saveContext()
         dataManager?.fetchItems(completion: { (repo) in
@@ -86,39 +88,43 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
             self.view?.updateCellisFavorite(indexPath: indexPath, isFavorite: false)
         })
     }
-    
-    
-    func searchRepositories(text: String, completion: @escaping(() -> ())) {
+
+
+    func searchRepositories(text: String, completion: @escaping (() -> ())) {
         api?.fetchSearchRepositories(text: text, completion: { repositories in
             self.repositories = repositories
             self.searchFavoritedRepositories()
             completion()
         })
     }
-    
+
     func cancelSearch() {
         api?.cancel()
     }
-    
-    
+
+
     private func isFavorited(repository: Repository) -> Bool {
         for repo in favoritedCoreDataRepositories {
-            guard let id = repository.id else { continue }
+            guard let id = repository.id else {
+                continue
+            }
             if id == repo.id {
                 return true
             }
         }
         return false
     }
-    
+
     // Favorite済みのリポジトリーがあるかをみる。repositoriesから探し、結果がisFavoritedRepositoriesに入る。
     private func searchFavoritedRepositories() {
         isFavoritedRepositories = []
         let ids = favoritedCoreDataRepositories.map({ $0.id })
         for repo in repositories {
-            guard let id = repo.id else { continue }
-            isFavoritedRepositories.append( ids.contains(Int32(id)) )
+            guard let id = repo.id else {
+                continue
+            }
+            isFavoritedRepositories.append(ids.contains(Int32(id)))
         }
     }
-    
+
 }
