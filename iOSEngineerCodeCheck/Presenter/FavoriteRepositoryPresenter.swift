@@ -11,7 +11,7 @@ import Foundation
 protocol FavoriteRepositoryPresenterInput {
     func viewDidLoad()
     func viewWillApper()
-    func deleteFevoriteRepository(indexPath: IndexPath)
+    func deleteFavoriteRepository(indexPath: IndexPath)
     func getRepository(index: Int) -> Repository?
 
     var favoritedCoreDataRepositories: [CoreDataRepository] { get }
@@ -24,12 +24,12 @@ protocol FavoriteRepositoryPresenterOutput: AnyObject {
 
 final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
     private var view: FavoriteRepositoryPresenterOutput?
-    private var dataManager: FevoriteRepositoryDataManager?
+    private var dataManager: FavoriteRepositoryDataManager?
 
     private(set) var favoritedCoreDataRepositories: [CoreDataRepository] = []
 
     init(view: FavoriteRepositoryPresenterOutput,
-         dataManager: FevoriteRepositoryDataManager = FevoriteRepositoryDataManager.shared
+         dataManager: FavoriteRepositoryDataManager = FavoriteRepositoryDataManager.shared
     ) {
         self.view = view
         self.dataManager = dataManager
@@ -46,7 +46,7 @@ final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
         })
     }
 
-    func deleteFevoriteRepository(indexPath: IndexPath) {
+    func deleteFavoriteRepository(indexPath: IndexPath) {
         dataManager?.delete(favoritedCoreDataRepositories[indexPath.row])
         dataManager?.saveContext()
         dataManager?.fetchItems(completion: { (repo) in

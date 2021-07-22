@@ -1,5 +1,5 @@
 //
-//  FevoriteRepositoryModel.swift
+//  FavoriteRepositoryModel.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by craptone on 2021/07/10.
@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-class FevoriteRepositoryDataManager {
-    static let shared: FevoriteRepositoryDataManager = FevoriteRepositoryDataManager()
+class FavoriteRepositoryDataManager {
+    static let shared: FavoriteRepositoryDataManager = FavoriteRepositoryDataManager()
 
     private var persistentContainer: NSPersistentContainer!
 

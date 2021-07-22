@@ -41,7 +41,7 @@ class iOSEngineerCodeCheckTests: XCTestCase {
     }
     
     func testCoreData() throws {
-       let dataManager = FevoriteRepositoryDataManager.shared
+       let dataManager = FavoriteRepositoryDataManager.shared
         let testID = 1234567890
         let repo = Repository(id: testID, name: "hello")
         

@@ -13,7 +13,7 @@ protocol SearchRepositoryPresenterInput {
     func viewDidLoad()
     func viewWillApper()
     func favoriteRepository(indexPath: IndexPath)
-    func deleteFevoriteRepository(indexPath: IndexPath)
+    func deleteFavoriteRepository(indexPath: IndexPath)
     func searchRepositories(text: String, completion: @escaping (() -> ()))
     func cancelSearch()
 
@@ -31,7 +31,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
 
     private weak var view: SearchRepositoryPresenterOutput?
     private var api: GithubAPIInput?
-    private var dataManager: FevoriteRepositoryDataManager?
+    private var dataManager: FavoriteRepositoryDataManager?
 
     private(set) var repositories: [Repository] = []
     private(set) var favoritedCoreDataRepositories: [CoreDataRepository] = []
@@ -39,7 +39,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
 
     init(view: SearchRepositoryPresenterOutput,
          api: GithubAPIInput = GithubAPI.shared,
-         dataManager: FevoriteRepositoryDataManager = FevoriteRepositoryDataManager.shared
+         dataManager: FavoriteRepositoryDataManager = FavoriteRepositoryDataManager.shared
     ) {
         self.view = view
         self.api = api
@@ -68,7 +68,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
         })
     }
 
-    func deleteFevoriteRepository(indexPath: IndexPath) {
+    func deleteFavoriteRepository(indexPath: IndexPath) {
         let id = repositories[indexPath.row].id
         var coredataRepo: CoreDataRepository?
         for repo in self.favoritedCoreDataRepositories {

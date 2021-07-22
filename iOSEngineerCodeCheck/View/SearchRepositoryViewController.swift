@@ -118,7 +118,7 @@ class SearchRepositoryViewController: UITableViewController {
             let isFavorite = self.presenter?.isFavoritedRepositories[indexPath.row] ?? false
             if isFavorite {
                 let deleteFavorite = UIAction(title: "Delete favorite", image: UIImage(systemName: "heart.slash")) { action in
-                    self.presenter?.deleteFevoriteRepository(indexPath: indexPath)
+                    self.presenter?.deleteFavoriteRepository(indexPath: indexPath)
                 }
 
                 return UIMenu(title: "", children: [deleteFavorite])
