@@ -17,6 +17,10 @@ class GithubAPI: GithubAPIInput {
     static let shared = GithubAPI()
 
     private var task: URLSessionTask?
+    
+    private init() {
+        
+    }
 
     func fetchSearchRepositories(text: String, completion: @escaping ([Repository]) -> ()) {
         let urlText = "https://api.github.com/search/repositories?q=\(text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
