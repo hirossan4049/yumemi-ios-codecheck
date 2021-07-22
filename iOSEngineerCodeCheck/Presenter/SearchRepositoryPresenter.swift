@@ -11,7 +11,7 @@ import Foundation
 
 protocol SearchRepositoryPresenterInput {
     func viewDidLoad()
-    func viewWillApper()
+    func viewWillAppear()
     func favoriteRepository(indexPath: IndexPath)
     func deleteFavoriteRepository(indexPath: IndexPath)
     func searchRepositories(text: String, completion: @escaping (() -> ()))
@@ -50,7 +50,7 @@ final class SearchRepositoryPresenter: SearchRepositoryPresenterInput {
 
     }
 
-    func viewWillApper() {
+    func viewWillAppear() {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo ?? []
             self.searchFavoritedRepositories()

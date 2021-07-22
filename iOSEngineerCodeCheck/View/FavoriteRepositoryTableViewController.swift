@@ -29,7 +29,7 @@ class FavoriteRepositoryTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        presenter?.viewWillApper()
+        presenter?.viewWillAppear()
     }
 
 

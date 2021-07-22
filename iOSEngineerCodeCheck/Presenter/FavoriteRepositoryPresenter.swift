@@ -10,7 +10,7 @@ import Foundation
 
 protocol FavoriteRepositoryPresenterInput {
     func viewDidLoad()
-    func viewWillApper()
+    func viewWillAppear()
     func deleteFavoriteRepository(indexPath: IndexPath)
     func getRepository(index: Int) -> Repository?
 
@@ -39,7 +39,7 @@ final class FavoriteRepositoryPresenter: FavoriteRepositoryPresenterInput {
 
     }
 
-    func viewWillApper() {
+    func viewWillAppear() {
         dataManager?.fetchItems(completion: { (repo) in
             self.favoritedCoreDataRepositories = repo?.reversed() ?? []
             self.view?.reload()
