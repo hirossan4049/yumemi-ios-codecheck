@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteRepositoryTableViewController: UITableViewController {
+final class FavoriteRepositoryTableViewController: UITableViewController {
 
     private var presenter: FavoriteRepositoryPresenterInput?
 

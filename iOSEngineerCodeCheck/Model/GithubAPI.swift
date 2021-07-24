@@ -13,7 +13,7 @@ protocol GithubAPIInput {
     func cancel()
 }
 
-class GithubAPI: GithubAPIInput {
+final class GithubAPI: GithubAPIInput {
     static let shared = GithubAPI()
 
     private var task: URLSessionTask?

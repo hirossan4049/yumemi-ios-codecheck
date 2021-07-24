@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FavoriteRepositoryDataManager {
+final class FavoriteRepositoryDataManager {
     static let shared: FavoriteRepositoryDataManager = FavoriteRepositoryDataManager()
 
     private var persistentContainer: NSPersistentContainer!

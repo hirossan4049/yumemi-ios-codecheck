@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchRepositoryViewController: UITableViewController {
+final class SearchRepositoryViewController: UITableViewController {
 
     private var presenter: SearchRepositoryPresenterInput?
 

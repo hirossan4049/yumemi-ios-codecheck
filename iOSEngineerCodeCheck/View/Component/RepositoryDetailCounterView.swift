@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class RepositoryDetailCounterView: UIView {
+final class RepositoryDetailCounterView: UIView {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
