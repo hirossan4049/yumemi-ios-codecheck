@@ -16,14 +16,10 @@ extension UIColor{
     static let tertiaryLabelColor = ldColor(UIColor(hex: "6F799D"), UIColor(hex: "B7C1C9"))
     
     static func ldColor(_ light:UIColor, _ dark:UIColor) -> UIColor{
-        if #available(iOS 13.0, *) {
-            return UIColor { (traits) -> UIColor in
-                return traits.userInterfaceStyle == .dark ?
-                    dark:
-                    light
-                }
-        }else{
-            return light
+        return UIColor { (traits) -> UIColor in
+            return traits.userInterfaceStyle == .dark ?
+                dark:
+                light
         }
     }
 }
