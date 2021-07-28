@@ -33,6 +33,9 @@ final class RepositoryDetailViewController: UIViewController {
     }
 
     private func setupView() {
+        let favoriteBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart")!, style: .plain, target: self, action: #selector(didTapFavorite))
+        navigationItem.rightBarButtonItem = favoriteBarButtonItem
+        
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
         repositoryDetailCounterViewsScrollView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -77,6 +80,10 @@ final class RepositoryDetailViewController: UIViewController {
                 self.avatarImageView.image = img
             }
         }.resume()
+    }
+    
+    @objc private func didTapFavorite() {
+        
     }
 
 }
